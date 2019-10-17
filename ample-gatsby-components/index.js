@@ -1,1 +1,3 @@
-// This file is used in package.json
+// utilities
+export { default as Link } from './src/components/utilities/link'
+export { default as HTML } from './src/components/utilities/html'
