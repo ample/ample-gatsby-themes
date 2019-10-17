@@ -1,0 +1,29 @@
+{
+  "name": "ample-gatsby-components",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin"
+  ],
+  "peerDependencies": {
+    "gatsby": "^2.16.3",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "devDependencies": {
+    "gatsby": "^2.16.3",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
+}
