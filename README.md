@@ -1,1 +1,1 @@
-# Ample Gatsby Theme
+# Ample Gatsby Themes
