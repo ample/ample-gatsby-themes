@@ -24,11 +24,11 @@ const Link = ({ children, to, activeClassName, target, ...other }) => {
 Link.propTypes = {
   to: PropTypes.string.isRequired,
   target: PropTypes.string, // exclusive to external links
-  activeClassName: PropTypes.string, // exclusive to internal links
+  activeClassName: PropTypes.string // exclusive to internal links
 }
 
 Link.defaultProps = {
-  target: '_blank',
+  target: '_blank'
 }
 
 export default Link
