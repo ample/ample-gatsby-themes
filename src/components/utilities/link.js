@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link as GatsbyLink } from 'gatsby'
+import React from "react"
+import PropTypes from "prop-types"
+import { Link as GatsbyLink } from "gatsby"
 
 const Link = ({ children, to, activeClassName, target, ...other }) => {
   const internalLink = /^\/(?!\/)/.test(to)
@@ -13,7 +13,7 @@ const Link = ({ children, to, activeClassName, target, ...other }) => {
     <a
       href={to}
       target={target}
-      rel={target === '_blank' ? 'noopener' : ''}
+      rel={target === "_blank" ? "noopener" : ""}
       {...other}
     >
       {children}
@@ -28,7 +28,7 @@ Link.propTypes = {
 }
 
 Link.defaultProps = {
-  target: '_blank'
+  target: "_blank"
 }
 
 export default Link
