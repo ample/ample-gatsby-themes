@@ -1,0 +1,3 @@
+[build]
+  command = "yarn lint && yarn test && yarn build"
+  publish = ".docz/public"
