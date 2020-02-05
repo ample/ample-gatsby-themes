@@ -1,14 +1,41 @@
-# Ample Gatsby Themes
+# Basic Docz example
 
-Ample Gatsby Themes vary from preferred sets of tools, a handful of useful utilities, as well as configurations for working with other developers.
+## Using `create-docz-app`
 
-## configuration
-*add themes in the plugins array in `gatsby-config.js`*
+```sh
+npx create-docz-app docz-app-basic
+# or
+yarn create docz-app docz-app-basic
+```
 
-```js
-module.exports = {
-  plugins: [
-    { resolve: `ample-gatsby-components` },
-  ],
-};
+## Download manually
+
+```sh
+curl https://codeload.github.com/doczjs/docz/tar.gz/master | tar -xz --strip=2 docz-master/examples/basic
+mv basic docz-basic-example
+cd docz-basic-example
+```
+
+## Setup
+
+```sh
+yarn # npm i
+```
+
+## Run
+
+```sh
+yarn dev # npm run dev
+```
+
+## Build
+
+```sh
+yarn build # npm run build
+```
+
+## Serve built app
+
+```sh
+yarn serve # npm run serve
 ```
