@@ -91,4 +91,4 @@ Link.defaultProps = {
 }
 
 export default Link
-export { ExternalLink, InternalLink }
+export { ExternalLink, InternalLink, isInternalLink }
