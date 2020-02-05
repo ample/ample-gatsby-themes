@@ -5,4 +5,58 @@ route: /
 
 # Getting Started
 
-Welcome to Ample's Component Library ...
+Welcome to Ample's Component Library! You're going to love it!
+
+This library is a set of React components, built to play with Gatsby, and are designed to make you a happy developer.
+
+Here are the basics you need to know before getting started:
+
+## Installation
+
+Install the library in your Gatsby project:
+
+    $ yarn add https://github.com/ample/gatsby-theme-ample-components
+
+Then add it to the plugins section of your `gatsby-config.js` file:
+
+```js
+// gatsby-config.js
+plugins: [
+  // ...
+  `gatsby-theme-ample-components`
+]
+```
+
+## Contributing
+
+### Developing Locally
+
+This project uses the [Docz](https://www.docz.site/) Gatsby plugin to build out a doc site. This is a great place to test your components.
+
+You may also want to plug your component into an actual Gatsby site before submitting a pull request. To do so, begin by telling Yarn to store a reference to this library:
+
+    $ yarn link
+
+After following installation instructions for the library in your Gatsby project, you can then pull in the local code by running the following command from your project's directory:
+
+    $ yarn link gatsby-theme-ample-components
+
+### Submitting Your Code
+
+After adding your code, [open a pull request](https://github.com/ample/gatsby-theme-ample-components/compare) for your code to be reviewed.
+
+This will trigger a build via [the Netlify site](https://app.netlify.com/sites/gatsby-theme-ample-components), which runs the following commands:
+
+    $ yarn lint
+    $ yarn test
+    $ yarn build
+
+You may want to run those commands locally to make sure you're buttoned up before submitting a PR. Any addition or change to the components in this library should contain:
+
+- Relevant `propTypes` and `defaultProps` properties on all components.
+- Documentation of your work in all apropriate `notes.mdx` files.
+- Specs for any logic-based methods.
+
+## License
+
+Licensed under the [MIT License](https://github.com/ample/gatsby-theme-ample-components/blob/master/LICENSE).
