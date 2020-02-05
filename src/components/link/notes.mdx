@@ -1,0 +1,34 @@
+---
+menu: Components
+name: Link
+route: /components/link
+---
+
+import { Playground, Props } from "docz"
+
+import Link from "./"
+import { ExternalLink, InternalLink } from "./"
+
+# Link
+
+The `<Link />` component determines whether the route passed to it is an internal or external link, and wraps the component appropriately.
+
+If an internal link, the component renders [Gatsby's `<Link />` component](https://www.gatsbyjs.org/docs/gatsby-link/), otherwise it renders an anchor tag.
+
+<Playground>
+  <Link to="/components/link">I'm an internal link</Link>
+  <br />
+  <Link to="https://ample.co">
+    <em>And I'm external</em>
+  </Link>
+</Playground>
+
+While the `<Link />` component will accept and pass on all accepted properties, the properties are use conditionally depending on the type of link (i.e. _internal_ v _external_). Those are broken out below:
+
+## External Link
+
+<Props of={ExternalLink} />
+
+## Internal Link
+
+<Props of={InternalLink} />

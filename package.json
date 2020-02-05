@@ -2,9 +2,12 @@
   "name": "gatsby-theme-ample-components",
   "version": "0.0.1",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "dev": "docz dev",
+    "clean": "rm -rf .docz/.cache",
     "build": "docz build",
+    "lint": "eslint src/**/*.js",
     "serve": "docz serve"
   },
   "dependencies": {
@@ -13,5 +16,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2"
   }
 }
