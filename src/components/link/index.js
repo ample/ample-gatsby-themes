@@ -12,6 +12,7 @@ const InternalLink = props => (
     className={props.className}
     activeStyle={props.activeStyle}
     activeClassName={props.activeClassName}
+    onClick={props.onClick && props.onClick.bind(this)}
   >
     {props.children}
   </GatsbyLink>
@@ -37,7 +38,11 @@ InternalLink.propTypes = {
   /**
    * The path of the link.
    */
-  to: PropTypes.string.isRequired
+  to: PropTypes.string.isRequired,
+  /**
+   * Event handler for the onClick event
+   */
+  onClick: PropTypes.func
 }
 
 // ---------------------------------------- | External Link
@@ -48,6 +53,7 @@ const ExternalLink = props => (
     target={props.target}
     rel={props.target === "_blank" ? "noopener" : ""}
     className={props.className}
+    onClick={props.onClick && props.onClick.bind(this)}
   >
     {props.children}
   </a>
@@ -69,7 +75,11 @@ ExternalLink.propTypes = {
   /**
    * The URL of the link.
    */
-  to: PropTypes.string.isRequired
+  to: PropTypes.string.isRequired,
+  /**
+   * Event handler for the onClick event
+   */
+  onClick: PropTypes.func
 }
 
 // ---------------------------------------- | Link Component
@@ -83,7 +93,8 @@ Link.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   className: PropTypes.string,
   target: PropTypes.string,
-  to: PropTypes.string.isRequired
+  to: PropTypes.string.isRequired,
+  onClick: PropTypes.func
 }
 
 Link.defaultProps = {
