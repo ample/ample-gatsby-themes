@@ -9,14 +9,16 @@
     "build": "docz build",
     "lint": "eslint src/**/*.js",
     "serve": "docz serve",
-    "test": "jest src"
+    "test": "jest src",
+    "test:update": "jest src --updateSnapshot"
   },
   "dependencies": {
     "docz": "latest",
     "gatsby": "^2.19.12",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
     "babel-jest": "^25.1.0",
