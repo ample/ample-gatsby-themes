@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
 
 const SEO = ({ description, og, imageUrl, title, titleTemplate, twitter, url }) => (
-  <Helmet title={title} titleTemplate={titleTemplate || `${title} | %s`}>
+  <Helmet title={title} titleTemplate={titleTemplate || title}>
     {imageUrl && <meta name="image" content={imageUrl} />}
     {description && <meta name="description" content={description} />}
     {/* --- OpenGraph --- */}
@@ -20,7 +20,7 @@ const SEO = ({ description, og, imageUrl, title, titleTemplate, twitter, url }) 
       <meta name="twitter:description" content={twitter.description || description} />
     )}
     {(twitter.imageUrl || imageUrl) && (
-      <meta name="twitter:image" content={twitter.image || image} />
+      <meta name="twitter:image" content={twitter.imageUrl || imageUrl} />
     )}
   </Helmet>
 )
@@ -48,6 +48,12 @@ SEO.propTypes = {
    * Meta title. Serves as a backup for og:title and twitter:title.
    */
   title: PropTypes.string.isRequired,
+  /**
+   * Template for the title of the page, which can inject the title of the page
+   * (using "%s") alongside the site title. This is a feature of [React
+   * Helmet](https://github.com/nfl/react-helmet).
+   */
+  titleTemplate: PropTypes.string,
   /**
    * Specific Twitter tags. If ommitted, they fall back to the main title,
    * image, and description. The card falls back to "summary" if omitted.
