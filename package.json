@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "docz dev",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve",
     "clean": "rm -rf .docz/.cache",
     "build": "docz build",
     "lint": "eslint src/**/*.js",
@@ -13,9 +16,13 @@
     "test:update": "jest src --updateSnapshot"
   },
   "dependencies": {
-    "docz": "latest",
+    "docz": "^2.2.0",
     "gatsby": "^2.19.12",
     "prop-types": "^15.7.2",
+    "stylelint": "^13.2.0",
+    "stylelint-formatter-pretty": "^1.1.4",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.14.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1"
@@ -31,3 +38,4 @@
     "react-test-renderer": "^16.12.0"
   }
 }
+
