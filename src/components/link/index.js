@@ -1,8 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link as GatsbyLink } from "gatsby"
+import URL from "url"
+import * as path from "path"
 
-const isInternalLink = link => /^\/(?!\/)/.test(link)
+const isInternalLink = link => {
+  const url = URL.parse(link)
+  // If the link is a URL, it is external.
+  if (url.host) return false
+  // If the link begins with "//" it is treated as an external link.
+  if (url.path.slice(0, 2) === "//") return false
+  // We now are left with an internal path. But it is treated as an external
+  // link if it points to a non-HTML file.
+  const ext = path.parse(url.path).ext
+  return !ext || ext === ".html"
+}
 
 // ---------------------------------------- | Internal Link
 

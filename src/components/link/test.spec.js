@@ -5,17 +5,25 @@ import Link from "./"
 import { isInternalLink } from "./"
 
 describe("isInternalLink()", () => {
-  it("returns true for links with leading slashes", () => {
+  it("returns true for paths with no extension", () => {
     const result = isInternalLink("/hello/world")
     expect(result).toEqual(true)
   })
-  it("returns false for links with TWO leading slashes", () => {
+  it("returns false for two leading slashes", () => {
     const result = isInternalLink("//hello/world")
     expect(result).toEqual(false)
   })
-  it("returns false for links leading with a protocol", () => {
+  it("returns false for domains", () => {
     const result = isInternalLink("https://www.ample.co")
     expect(result).toEqual(false)
+  })
+  it("returns false for paths with extensions that are not HTML", () => {
+    const result = isInternalLink("/hello/world.pdf")
+    expect(result).toEqual(false)
+  })
+  it("returns true for paths with HTML extension", () => {
+    const result = isInternalLink("/hello/world.html")
+    expect(result).toEqual(true)
   })
 })
 
