@@ -1,8 +1,40 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link as GatsbyLink } from "gatsby"
+import URL from "url"
 
-const isInternalLink = link => /^\/(?!\/)/.test(link)
+/**
+ * Accepts a URL path and returns if that path is a path to a non-HTML file.
+ */
+const isFile = path => {
+  // Get the last segment in the path.
+  const filename = path.split("/").pop()
+  // Extract the file extension, if there is one.
+  const ext = filename.lastIndexOf(".") >= 0 ? filename.split(".").pop() : null
+  // If there is a file extension and if it is NOT .html then return true.
+  return ext && ext.toLowerCase() !== "html" ? true : false
+}
+
+/**
+ * Accepts a link string and determines if we should render using gatsby-link or
+ * a native anchor tag.
+ */
+const isGatsbyLink = link => {
+  // Treat missing links as external, so it will render an anchor tag with an
+  // empty href.
+  if (!link || link.length === 0) return false
+  // Parse the link's properties.
+  const url = URL.parse(link)
+  // If the link is a hash reference for the same page, don't use gatsby-link.
+  if (!url.path && url.hash) return false
+  // If the link is a URL, don't use gatsby-link.
+  if (url.host) return false
+  // If the link begins with "//" don't use gatsby-link.
+  if (url.path.slice(0, 2) === "//") return false
+  // Don't use gatsby-link if the link is a file reference and the extension is
+  // not .html.
+  return !isFile(url.path)
+}
 
 // ---------------------------------------- | Internal Link
 
@@ -85,7 +117,7 @@ ExternalLink.propTypes = {
 // ---------------------------------------- | Link Component
 
 const Link = props =>
-  isInternalLink(props.to) ? <InternalLink {...props} /> : <ExternalLink {...props} />
+  isGatsbyLink(props.to) ? <InternalLink {...props} /> : <ExternalLink {...props} />
 
 Link.propTypes = {
   activeClassName: PropTypes.string,
@@ -102,4 +134,4 @@ Link.defaultProps = {
 }
 
 export default Link
-export { ExternalLink, InternalLink, isInternalLink }
+export { ExternalLink, InternalLink, isFile, isGatsbyLink }
