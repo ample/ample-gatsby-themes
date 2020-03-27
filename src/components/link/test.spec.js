@@ -25,6 +25,10 @@ describe("isInternalLink()", () => {
     const result = isInternalLink("/hello/world.html")
     expect(result).toEqual(true)
   })
+  it("returns true for paths with uppercase HTML extension", () => {
+    const result = isInternalLink("/hello/world.HTML")
+    expect(result).toEqual(true)
+  })
 })
 
 describe("Link", () => {
