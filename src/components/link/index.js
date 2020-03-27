@@ -4,6 +4,10 @@ import { Link as GatsbyLink } from "gatsby"
 import URL from "url"
 
 const isInternalLink = link => {
+  // Treat missing links as external, so it will render an anchor tag with an
+  // empty href.
+  if (!link || link.length === 0) return false
+  // Parse the link's properties.
   const url = URL.parse(link)
   // If the link is a URL, it is external.
   if (url.host) return false

@@ -29,6 +29,11 @@ describe("isInternalLink()", () => {
     const result = isInternalLink("/hello/world.HTML")
     expect(result).toEqual(true)
   })
+  it("returns false for null, undefined, and empty string", () => {
+    expect(isInternalLink(null)).toEqual(false)
+    expect(isInternalLink(undefined)).toEqual(false)
+    expect(isInternalLink("")).toEqual(false)
+  })
 })
 
 describe("Link", () => {
