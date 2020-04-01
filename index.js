@@ -1,3 +1,2 @@
-import Link from "./src/components/link"
-
-export { Link }
+import MediaQueryDebugger from './src/components/MediaQuerryDebugger/index'
+export {MediaQueryDebugger}
