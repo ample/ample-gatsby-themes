@@ -4,7 +4,7 @@ import MediaQueryDebugger from "./index"
 
 describe("MediaQueryDebugger", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<MediaQueryDebugger isVisible={true}/>).toJSON()
+    const tree = renderer.create(<MediaQueryDebugger isVisible={'true'}/>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

@@ -1,7 +1,7 @@
 ---
 name: Media Query Debugger
 menu: Components
-route: /components/media-debugger
+route: /components/MediaQueryDebugger
 ---
 
 import { Playground, Props } from "docz"
@@ -10,6 +10,7 @@ import MediaQueryDebugger from "./"
 # Media Query Debugger
 
 This component provides a quick way to find the current media query for faster local development.
+_The media query degugger is located in the bottom left of the browser durning local development_
 
 ## Usage
 
@@ -17,4 +18,6 @@ This component provides a quick way to find the current media query for faster l
 yarn run develop:debug
 ```
 
-_The media query degugger is located in the bottom left of the browser durning local development_
+## Properties
+
+<Props of={MediaQueryDebugger} />
