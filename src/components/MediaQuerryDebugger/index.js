@@ -11,9 +11,6 @@ const MediaQueryDebugger = () => {
     [styles.is_showing]: isOpen
   })
 
-  console.log(styles);
-  
-
   return (
     <div className={classes} onClick={() => {setOpen(!isOpen)}}>
       <div className={styles.debug_media_queries} />
