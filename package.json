@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dev": "docz dev",
+    "develop": "docz dev",
     "clean": "rm -rf .docz/.cache",
     "build": "docz build",
     "lint": "eslint src/**/*.js",
@@ -13,12 +13,24 @@
     "test:update": "jest src --updateSnapshot"
   },
   "dependencies": {
+    "autoprefixer": "^9.6.1",
+    "classnames": "^2.2.6",
     "docz": "latest",
-    "gatsby": "^2.19.12",
+    "gatsby": "^2.20.10",
+    "gatsby-link": "^2.3.1",
+    "gatsby-plugin-postcss": "^2.2.1",
+    "gatsby-plugin-sass": "^2.2.1",
+    "gatsby-react-router-scroll": "^2.2.1",
+    "gatsby-theme-docz": "^2.2.0",
+    "postcss-normalize": "^8.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-pxtorem": "^4.0.1",
+    "postcss-responsive-type": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "sass": "^1.26.3"
   },
   "devDependencies": {
     "babel-jest": "^25.1.0",

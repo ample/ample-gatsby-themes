@@ -27,8 +27,8 @@ const SEO = ({ description, og, imageUrl, title, titleTemplate, twitter, url }) 
 
 SEO.propTypes = {
   /**
-   * Meta description. Serves as a backup for og:desciption and
-   * twitter:desciption.
+   * Meta description. Serves as a backup for og:description and
+   * twitter:description.
    */
   description: PropTypes.string,
   /**
@@ -36,7 +36,7 @@ SEO.propTypes = {
    */
   imageUrl: PropTypes.string,
   /**
-   * Specific OpenGraph tags. If ommitted, they fall back to the main title,
+   * Specific OpenGraph tags. If omitted, they fall back to the main title,
    * image, and description.
    */
   og: PropTypes.shape({
@@ -55,7 +55,7 @@ SEO.propTypes = {
    */
   titleTemplate: PropTypes.string,
   /**
-   * Specific Twitter tags. If ommitted, they fall back to the main title,
+   * Specific Twitter tags. If omitted, they fall back to the main title,
    * image, and description. The card falls back to "summary" if omitted.
    */
   twitter: PropTypes.shape({
