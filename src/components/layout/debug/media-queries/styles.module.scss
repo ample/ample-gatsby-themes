@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 
 // ---------------------------------------------------------
 
@@ -49,7 +49,7 @@ $z-index-debug: 4;
     border-color: transparent transparent transparent $background-color;
     border-style: solid;
     border-width: $size 0 0 $size;
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     right: -$size;
@@ -74,7 +74,7 @@ $z-index-debug: 4;
   @each $mq in $media-queries {
     @media screen and (min-width: nth($mq, 2)) {
       &::after {
-        content: "#{nth($mq, 1)} - min-width: #{nth($mq, 2)}";
+        content: '#{nth($mq, 1)} - min-width: #{nth($mq, 2)}';
       }
     }
   }
