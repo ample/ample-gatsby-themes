@@ -1,5 +1,4 @@
 import Link from "./src/components/link"
-import DebugMediaQueries from "./src/components/layout/debug/media-queries"
+import SEO from "./src/components/seo"
 
-export { Link }
-export { DebugMediaQueries }
+export { Link, SEO }
