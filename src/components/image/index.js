@@ -11,21 +11,13 @@ const Image = ({ alt, className, src, ...props }) => {
   // ---------------------------------------- | Gastby Image
 
   if (dig(src, "childImageSharp", "fluid") || dig(src, "childImageSharp", "fixed")) {
-    return (
-      <div className={classes}>
-        <Img alt={alt} {...src.childImageSharp} />
-      </div>
-    )
+    return <Img className={classes} alt={alt} {...src.childImageSharp} />
   }
 
   // ---------------------------------------- | Native Image
 
   if (typeof src === "string") {
-    return (
-      <div className={classes}>
-        <img src={src} alt={alt} {...props} />
-      </div>
-    )
+    return <img className={classes} src={src} alt={alt} {...props} />
   }
 
   // ---------------------------------------- | Invalid src
@@ -34,6 +26,10 @@ const Image = ({ alt, className, src, ...props }) => {
 }
 
 Image.propTypes = {
+  /**
+   * Specifies the image alt attribute.
+   */
+  alt: PropTypes.string,
   /**
    * Classes attributed to the wrapping element.
    */
@@ -44,9 +40,9 @@ Image.propTypes = {
    */
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   /**
-   * Specifies the image alt attribute.
+   * Support for directly passing styles to the image component.
    */
-  alt: PropTypes.string
+  styles: PropTypes.object
 }
 
 Image.defaultProps = {}
