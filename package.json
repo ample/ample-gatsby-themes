@@ -4,12 +4,14 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "develop": "jest --json --outputFile=.jest-test-results.json && start-storybook -p 6006",
+    "develop": "yarn storybook",
     "clean": "rm -rf storybook-static",
-    "build": "jest --json --outputFile=.jest-test-results.json && build-storybook --quiet -c .storybook",
-    "lint": "eslint -c .eslintrc.js . && stylelint --config stylelint.config.js 'src/**/*.scss'",
-    "test": "jest src",
-    "test:update": "jest src --updateSnapshot"
+    "build": "yarn storybook:build",
+    "lint": "eslint -c .eslintrc.js ./src && stylelint --config stylelint.config.js './src/**/*.scss'",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook --quiet -c .storybook",
+    "test": "jest ./src --json --outputFile=.jest-test-results.json",
+    "test:update": "yarn test --updateSnapshot"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
