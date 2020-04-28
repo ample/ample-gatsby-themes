@@ -1,0 +1,8 @@
+.button {
+  cursor: pointer;
+  display: inline-block;
+
+  &.is_block {
+    display: block;
+  }
+}

@@ -1,0 +1,37 @@
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks"
+import LinkList from "./"
+import Fixture from "./_fixtures"
+
+<Meta title="Components/Link List" component={LinkList} />
+
+# Link List
+
+## Horizontal
+
+<Preview>
+  <Story name="Horizontal">
+    <LinkList links={Fixture.horizontal} />
+  </Story>
+</Preview>
+
+## Horizontal with a drop down and button
+
+<Preview>
+  <Story name="Horizontal with a drop down">
+    <div style={{ height: '200px' }}>
+      <LinkList links={Fixture.horizontal_with_drop_down_and_button} />
+    </div>
+  </Story>
+</Preview>
+
+## Vertical
+
+<Preview>
+  <Story name="Vertical">
+    <LinkList heading={Fixture.vertical.label} links={Fixture.vertical.items} vertical />
+  </Story>
+</Preview>
+
+## Properties
+
+<Props of={LinkList} />

@@ -1,0 +1,26 @@
+@use '../../styles/global' as *;
+
+.cl_link_list {
+  @include reset-list;
+
+  align-items: center;
+  display: flex;
+
+  li {
+    margin-right: 12px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+      margin-right: 0;
+    }
+  }
+
+  &_is_vertical {
+    align-items: start;
+    flex-direction: column;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}
