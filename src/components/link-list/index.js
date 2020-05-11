@@ -7,10 +7,10 @@ import Button from "../button"
 
 import styles from "./styles.module.scss"
 
-const LinkList = ({ className, heading, links = [], vertical }) => {
+const LinkList = ({ activeClassName, className, heading, links = [], vertical }) => {
   const [currentDropDown, setDropDown] = useState(null)
 
-  const handleMouseEnter = index => {
+  const handleMouseEnter = (index) => {
     setDropDown(index)
   }
 
@@ -18,7 +18,7 @@ const LinkList = ({ className, heading, links = [], vertical }) => {
     setDropDown(null)
   }
 
-  const handleClick = index => {
+  const handleClick = (index) => {
     setDropDown(currentDropDown === index ? null : index)
   }
 
@@ -57,7 +57,12 @@ const LinkList = ({ className, heading, links = [], vertical }) => {
         } else {
           return (
             <li key={index}>
-              <Link className={item.className} title={item.title} to={item.url}>
+              <Link
+                activeClassName={activeClassName}
+                className={item.className}
+                title={item.title}
+                to={item.url}
+              >
                 {item.label}
               </Link>
             </li>
@@ -69,6 +74,10 @@ const LinkList = ({ className, heading, links = [], vertical }) => {
 }
 
 LinkList.propTypes = {
+  /**
+   * Specifies an active class name
+   */
+  activeClassName: PropTypes.string,
   /**
    * Specifies if a link should render as a button
    */
