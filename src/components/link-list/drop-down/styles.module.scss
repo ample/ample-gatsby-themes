@@ -7,34 +7,6 @@
   flex-direction: column;
   position: relative;
 
-  // &.is_showing {
-  //   @include media($small-highest, down) {
-  //     background-color: var(--color-blue-ice);
-  //     margin-left: -$global-padding;
-  //     margin-right: -$global-padding;
-  //   }
-
-  //   span {
-  //     @include media($small-highest, down) {
-  //       padding-left: $global-padding;
-  //     }
-  //   }
-
-  //   ul {
-  //     li {
-  //       @include media($small-highest, down) {
-  //         margin-bottom: $global-padding;
-  //       }
-
-  //       &:last-of-type {
-  //         @include media($small-highest, down) {
-  //           margin-bottom: 0;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
   .drop_down {
     left: 0;
     position: relative;
@@ -49,7 +21,7 @@
       right: 0;
       top: 14px;
       width: 100%;
-      z-index: 3;
+      z-index: $z-index-plus-three;
     }
 
     li {
