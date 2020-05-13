@@ -1,27 +1,14 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames/bind"
-import Link from "../link"
-import DropDown from "./drop-down"
+
 import Button from "../button"
+import { Dropdown, DropdownMenu, DropdownTrigger } from "../dropdown"
+import Link from "../link"
 
 import styles from "./styles.module.scss"
 
 const LinkList = ({ activeClassName, className, heading, links = [], vertical }) => {
-  const [currentDropDown, setDropDown] = useState(null)
-
-  const handleMouseEnter = (index) => {
-    setDropDown(index)
-  }
-
-  const handleMouseLeave = () => {
-    setDropDown(null)
-  }
-
-  const handleClick = (index) => {
-    setDropDown(currentDropDown === index ? null : index)
-  }
-
   const classes = classNames(styles.cl_link_list, className, {
     [styles[`cl_link_list_is_vertical`]]: vertical
   })
@@ -37,14 +24,12 @@ const LinkList = ({ activeClassName, className, heading, links = [], vertical })
       {links.map((item, index) => {
         if (item.children && item.children.length > 0) {
           return (
-            <DropDown
-              key={index}
-              item={item}
-              isShowing={index == currentDropDown}
-              onClick={() => handleClick(index)}
-              handleMouseEnter={() => handleMouseEnter(index)}
-              handleMouseLeave={handleMouseLeave}
-            />
+            <li key={index}>
+              <Dropdown key={index}>
+                <DropdownTrigger>{item.label}</DropdownTrigger>
+                <DropdownMenu items={item.children} />
+              </Dropdown>
+            </li>
           )
         } else if (item.button) {
           return (
@@ -75,23 +60,19 @@ const LinkList = ({ activeClassName, className, heading, links = [], vertical })
 
 LinkList.propTypes = {
   /**
-   * Specifies an active class name
+   * Specifies an active class name, passed on to the <Link /> component
    */
   activeClassName: PropTypes.string,
   /**
-   * Specifies if a link should render as a button
-   */
-  button: PropTypes.bool.isRequired,
-  /**
-   * Specifies additional class names
+   * CSS class(es) applied to the wrapping element
    */
   className: PropTypes.string,
   /**
-   * Specifies the heading of a list
+   * Heading rendered before the items, typically only used in vertical lists
    */
   heading: PropTypes.string,
   /**
-   * Specifies an array of Links
+   * An array of link objects used to build the list
    */
   links: PropTypes.arrayOf(
     PropTypes.shape({
@@ -101,7 +82,6 @@ LinkList.propTypes = {
       url: PropTypes.string.isRequired,
       children: PropTypes.arrayOf(
         PropTypes.shape({
-          button: PropTypes.bool,
           className: PropTypes.string,
           label: PropTypes.string.isRequired,
           url: PropTypes.string.isRequired
@@ -116,7 +96,6 @@ LinkList.propTypes = {
 }
 
 LinkList.defaultProps = {
-  button: false,
   vertical: false
 }
 
