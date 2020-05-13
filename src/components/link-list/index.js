@@ -2,24 +2,24 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames/bind"
 import Link from "../link"
-import DropDown from "./drop-down"
+import Dropdown from "../dropdown"
 import Button from "../button"
 
 import styles from "./styles.module.scss"
 
 const LinkList = ({ activeClassName, className, heading, links = [], vertical }) => {
-  const [currentDropDown, setDropDown] = useState(null)
+  const [currentDropdown, setDropdown] = useState(null)
 
   const handleMouseEnter = (index) => {
-    setDropDown(index)
+    setDropdown(index)
   }
 
   const handleMouseLeave = () => {
-    setDropDown(null)
+    setDropdown(null)
   }
 
   const handleClick = (index) => {
-    setDropDown(currentDropDown === index ? null : index)
+    setDropdown(currentDropdown === index ? null : index)
   }
 
   const classes = classNames(styles.cl_link_list, className, {
@@ -37,10 +37,10 @@ const LinkList = ({ activeClassName, className, heading, links = [], vertical })
       {links.map((item, index) => {
         if (item.children && item.children.length > 0) {
           return (
-            <DropDown
+            <Dropdown
               key={index}
               item={item}
-              isShowing={index == currentDropDown}
+              isShowing={index == currentDropdown}
               onClick={() => handleClick(index)}
               handleMouseEnter={() => handleMouseEnter(index)}
               handleMouseLeave={handleMouseLeave}

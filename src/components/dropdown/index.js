@@ -1,41 +1,41 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames/bind"
-import Icon from "../../icon"
-import Link from "../../link"
+import Icon from "../icon"
+import Link from "../link"
 
 import styles from "./styles.module.scss"
 
-const DropDown = ({ item, isShowing, handleMouseEnter, handleMouseLeave, onClick }) => {
-  const [dropDownIsOpen, setDropDown] = useState(false)
+const Dropdown = ({ item, isShowing, handleMouseEnter, handleMouseLeave, onClick }) => {
+  const [dropDownIsOpen, setDropdown] = useState(false)
 
-  const handleDropDownClick = () => {
-    setDropDown(!dropDownIsOpen)
+  const handleDropdownClick = () => {
+    setDropdown(!dropDownIsOpen)
 
     if (onClick) {
       onClick()
     }
   }
 
-  const classes = classNames(styles.has_drop_down, {
+  const classes = classNames(styles.has_dropdown, {
     [styles.is_showing]: dropDownIsOpen
   })
 
   return (
     <li className={classes}>
       <a
-        className={styles.drop_down_link}
+        className={styles.dropdown_link}
         href={item.url}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={handleDropDownClick}
+        onClick={handleDropdownClick}
       >
         <span>{item.label}</span>
         <Icon name="arrow-down" />
       </a>
       {isShowing ? (
         <ul
-          className={styles.drop_down}
+          className={styles.dropdown}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -56,7 +56,7 @@ const DropDown = ({ item, isShowing, handleMouseEnter, handleMouseLeave, onClick
   )
 }
 
-DropDown.propTypes = {
+Dropdown.propTypes = {
   /**
    * Specifies each link
    */
@@ -79,6 +79,6 @@ DropDown.propTypes = {
   onClick: PropTypes.func.isRequired
 }
 
-DropDown.defaultProps = {}
+Dropdown.defaultProps = {}
 
-export default DropDown
+export default Dropdown

@@ -5,7 +5,7 @@
     { "url": "#", "label": "Fusce molestie" },
     { "url": "#", "label": "Etiam in lacinia dolor" }
   ],
-  "horizontal_with_drop_down_and_button": [
+  "horizontal_with_dropdown_and_button": [
     { "url": "/", "label": "Vestibulum" },
     { "url": "#", "label": "Pellentesque venenatis" },
     { "url": "#", "label": "Fusce" },
