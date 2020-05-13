@@ -1,27 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames/bind"
 import Link from "../link"
-import Dropdown from "../dropdown"
+import { Dropdown, DropdownMenu, DropdownTrigger } from "../dropdown"
 import Button from "../button"
 
 import styles from "./styles.module.scss"
 
 const LinkList = ({ activeClassName, className, heading, links = [], vertical }) => {
-  const [currentDropdown, setDropdown] = useState(null)
-
-  const handleMouseEnter = (index) => {
-    setDropdown(index)
-  }
-
-  const handleMouseLeave = () => {
-    setDropdown(null)
-  }
-
-  const handleClick = (index) => {
-    setDropdown(currentDropdown === index ? null : index)
-  }
-
   const classes = classNames(styles.cl_link_list, className, {
     [styles[`cl_link_list_is_vertical`]]: vertical
   })
@@ -37,14 +23,12 @@ const LinkList = ({ activeClassName, className, heading, links = [], vertical })
       {links.map((item, index) => {
         if (item.children && item.children.length > 0) {
           return (
-            <Dropdown
-              key={index}
-              item={item}
-              isShowing={index == currentDropdown}
-              onClick={() => handleClick(index)}
-              handleMouseEnter={() => handleMouseEnter(index)}
-              handleMouseLeave={handleMouseLeave}
-            />
+            <li key={index}>
+              <Dropdown key={index}>
+                <DropdownTrigger>{item.label}</DropdownTrigger>
+                <DropdownMenu items={item.children} />
+              </Dropdown>
+            </li>
           )
         } else if (item.button) {
           return (
