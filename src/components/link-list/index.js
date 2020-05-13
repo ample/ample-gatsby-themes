@@ -1,9 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames/bind"
-import Link from "../link"
-import { Dropdown, DropdownMenu, DropdownTrigger } from "../dropdown"
+
 import Button from "../button"
+import { Dropdown, DropdownMenu, DropdownTrigger } from "../dropdown"
+import Link from "../link"
 
 import styles from "./styles.module.scss"
 
@@ -59,23 +60,19 @@ const LinkList = ({ activeClassName, className, heading, links = [], vertical })
 
 LinkList.propTypes = {
   /**
-   * Specifies an active class name
+   * Specifies an active class name, passed on to the <Link /> component
    */
   activeClassName: PropTypes.string,
   /**
-   * Specifies if a link should render as a button
-   */
-  button: PropTypes.bool.isRequired,
-  /**
-   * Specifies additional class names
+   * CSS class(es) applied to the wrapping element
    */
   className: PropTypes.string,
   /**
-   * Specifies the heading of a list
+   * Heading rendered before the items, typically only used in vertical lists
    */
   heading: PropTypes.string,
   /**
-   * Specifies an array of Links
+   * An array of link objects used to build the list
    */
   links: PropTypes.arrayOf(
     PropTypes.shape({
@@ -85,7 +82,6 @@ LinkList.propTypes = {
       url: PropTypes.string.isRequired,
       children: PropTypes.arrayOf(
         PropTypes.shape({
-          button: PropTypes.bool,
           className: PropTypes.string,
           label: PropTypes.string.isRequired,
           url: PropTypes.string.isRequired
@@ -100,7 +96,6 @@ LinkList.propTypes = {
 }
 
 LinkList.defaultProps = {
-  button: false,
   vertical: false
 }
 

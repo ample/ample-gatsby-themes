@@ -11,7 +11,7 @@ const DropdownMenu = ({ className, items }) => {
   return (
     <ul className={classNames(styles.dropdown_menu, { [className]: className })}>
       {items.map((item, idx) => (
-        <li key={idx}>
+        <li key={idx} className={item.className}>
           <Link to={item.url}>{item.label}</Link>
         </li>
       ))}
@@ -25,6 +25,8 @@ DropdownMenu.propTypes = {
   /** An array of items to render in the dropdown menu */
   items: PropTypes.arrayOf(
     PropTypes.shape({
+      /** CSS class(es) to apply to the individual element */
+      className: PropTypes.string,
       /** Label for list item */
       label: PropTypes.string.isRequired,
       /** URL for list item (href attribute) */
