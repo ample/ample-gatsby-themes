@@ -25,7 +25,13 @@ const Dropdown = ({ children, className }) => {
   }
 
   return (
-    <span className={classes} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <span
+      className={classes}
+      role="button"
+      tabIndex={0}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {children}
     </span>
   )
