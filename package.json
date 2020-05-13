@@ -17,6 +17,7 @@
   "devDependencies": {
     "@babel/polyfill": "^7.8.7",
     "@storybook/addon-a11y": "^5.3.18",
+    "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-essentials": "^5.3.18",
     "@storybook/addon-jest": "^5.3.18",
