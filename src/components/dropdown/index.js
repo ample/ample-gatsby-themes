@@ -1,84 +1,43 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames/bind"
-import Icon from "../icon"
-import Link from "../link"
+
+import DropdownMenu from "./menu"
+import DropdownTrigger from "./trigger"
 
 import styles from "./styles.module.scss"
+import menuStyles from "./menu/styles.module.scss"
 
-const Dropdown = ({ item, isShowing, handleMouseEnter, handleMouseLeave, onClick }) => {
-  const [dropDownIsOpen, setDropdown] = useState(false)
+const Dropdown = ({ children, className }) => {
+  const [isOpen, setIsOpen] = useState(false)
 
-  const handleDropdownClick = () => {
-    setDropdown(!dropDownIsOpen)
-
-    if (onClick) {
-      onClick()
-    }
-  }
-
-  const classes = classNames(styles.has_dropdown, {
-    [styles.is_showing]: dropDownIsOpen
+  const classes = classNames(styles.dropdown, {
+    [menuStyles.is_showing]: isOpen,
+    [className]: className
   })
 
+  const handleMouseEnter = () => {
+    setIsOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsOpen(false)
+  }
+
   return (
-    <li className={classes}>
-      <a
-        className={styles.dropdown_link}
-        href={item.url}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={handleDropdownClick}
-      >
-        <span>{item.label}</span>
-        <Icon name="arrow-down" />
-      </a>
-      {isShowing ? (
-        <ul
-          className={styles.dropdown}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {item.children.map((child, index) => {
-            return (
-              <li key={index}>
-                {child.url && (
-                  <Link className={child.className} title={child.title} to={child.url}>
-                    <span>{child.label}</span>
-                  </Link>
-                )}
-              </li>
-            )
-          })}
-        </ul>
-      ) : null}
-    </li>
+    <span className={classes} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {children}
+    </span>
   )
 }
 
 Dropdown.propTypes = {
-  /**
-   * Specifies each link
-   */
-  item: PropTypes.object.isRequired,
-  /**
-   * Specifies if the drop down is showing
-   */
-  isShowing: PropTypes.bool.isRequired,
-  /**
-   * Specifies a function for when the mouse enters the drop down
-   */
-  handleMouseEnter: PropTypes.func.isRequired,
-  /**
-   * Specifies a function for when the mouse leaves the drop down
-   */
-  handleMouseLeave: PropTypes.func.isRequired,
-  /**
-   * Specifies a function for when the user clicks the drop down
-   */
-  onClick: PropTypes.func.isRequired
+  /** Element(s) to render to the screen */
+  children: PropTypes.node.isRequired,
+  /** CSS class to apply to the wrapping element */
+  className: PropTypes.string
 }
 
-Dropdown.defaultProps = {}
-
 export default Dropdown
+
+export { Dropdown, DropdownMenu, DropdownTrigger }
