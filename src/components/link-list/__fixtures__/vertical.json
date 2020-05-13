@@ -1,6 +1,6 @@
 {
   "label": "Quisque",
-  "items": [
+  "links": [
     { "url": "/", "label": "Vestibulum vitae" },
     { "url": "#", "label": "Pellentesque tempor venenatis" },
     { "url": "#", "label": "Fusce molestie" },

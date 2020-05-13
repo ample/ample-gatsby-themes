@@ -5,6 +5,8 @@ exports[`Dropdown renders correctly 1`] = `
   className="dropdown"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  role="button"
+  tabIndex={0}
 >
   <span
     className="dropdown_trigger"
