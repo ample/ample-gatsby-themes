@@ -6,7 +6,7 @@ import dig from "object-dig"
 import styles from "./styles.module.scss"
 
 const Image = ({ alt, className, src, ...props }) => {
-  const classes = classNames(styles.image, { [className]: className })
+  const classes = classNames(styles.cl_image, { [className]: className })
 
   // ---------------------------------------- | Gastby Image
 
