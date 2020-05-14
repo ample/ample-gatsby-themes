@@ -3,14 +3,14 @@
 exports[`Image renders correctly 1`] = `
 <img
   alt="Image from https://placehold.it"
-  className="image"
+  className="cl_image"
   src="https://via.placeholder.com/300"
 />
 `;
 
 exports[`Image will render with a proper fixed image 1`] = `
 <div
-  className="image gatsby-image-wrapper"
+  className="cl_image gatsby-image-wrapper"
   style={
     Object {
       "display": "inline-block",
@@ -82,7 +82,7 @@ exports[`Image will render with a proper fixed image 1`] = `
 
 exports[`Image will render with a proper fluid image 1`] = `
 <div
-  className="image gatsby-image-wrapper"
+  className="cl_image gatsby-image-wrapper"
   style={
     Object {
       "overflow": "hidden",
