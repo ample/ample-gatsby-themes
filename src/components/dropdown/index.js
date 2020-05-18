@@ -16,12 +16,8 @@ const Dropdown = ({ children, className }) => {
     [className]: className
   })
 
-  const handleMouseEnter = () => {
-    setIsOpen(true)
-  }
-
-  const handleMouseLeave = () => {
-    setIsOpen(false)
+  const handleClick = () => {
+    setIsOpen(!isOpen)
   }
 
   return (
@@ -29,8 +25,8 @@ const Dropdown = ({ children, className }) => {
       className={classes}
       role="button"
       tabIndex={0}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onClick={() => handleClick(isOpen)}
+      onKeyPress={() => handleClick(isOpen)}
     >
       {children}
     </span>
