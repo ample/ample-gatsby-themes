@@ -5,3 +5,30 @@
   flex-direction: column;
   position: relative;
 }
+
+.is_open .dropdown_menu {
+  display: block;
+}
+
+.dropdown_trigger {
+  // display: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dropdown_menu {
+  display: none;
+  // display: block;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 100%;
+  z-index: $z-index-plus-three;
+
+  ul {
+    @include reset-list;
+  }
+}

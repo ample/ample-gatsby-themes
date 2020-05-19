@@ -2,33 +2,54 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames/bind"
 
-import DropdownMenu from "./menu"
-import DropdownTrigger from "./trigger"
+import Button from "../button"
+import Icon from "../icon"
+import Link from "../link"
 
 import styles from "./styles.module.scss"
 import menuStyles from "./menu/styles.module.scss"
 
-const Dropdown = ({ children, className }) => {
+const Dropdown = ({ children, className, trigger }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [childrenFocused, setChildrenFocused] = useState(false)
 
   const classes = classNames(styles.dropdown, {
-    [menuStyles.is_showing]: isOpen,
+    [menuStyles.is_open]: isOpen,
     [className]: className
   })
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault()
     setIsOpen(!isOpen)
   }
 
+  const handleBlur = () => {
+    if (!childrenFocused) setIsOpen(false)
+    setChildrenFocused(false)
+  }
+
+  const handleChildrenMousedown = () => {
+    setChildrenFocused(true)
+  }
+
+  const TriggerTagName = trigger.button ? Button : Link
+
   return (
-    <span
-      className={classes}
-      role="button"
-      tabIndex={0}
-      onClick={() => handleClick(isOpen)}
-      onKeyPress={() => handleClick(isOpen)}
-    >
-      {children}
+    <span className={classes} onBlur={handleBlur}>
+      <TriggerTagName
+        to=""
+        className={styles.dropdown_trigger}
+        onClick={handleClick}
+        role="button"
+        tabIndex={0}
+      >
+        <span>{trigger.label}</span>
+        <Icon name="arrow-down" />
+      </TriggerTagName>
+
+      <div className={styles.dropdown_menu} onMouseDown={handleChildrenMousedown}>
+        {children}
+      </div>
     </span>
   )
 }
@@ -41,5 +62,3 @@ Dropdown.propTypes = {
 }
 
 export default Dropdown
-
-export { Dropdown, DropdownMenu, DropdownTrigger }

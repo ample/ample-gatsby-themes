@@ -6,7 +6,7 @@ import URL from "url"
 /**
  * Accepts a URL path and returns if that path is a path to a non-HTML file.
  */
-const isFile = path => {
+const isFile = (path) => {
   // Get the last segment in the path.
   const filename = path.split("/").pop()
   // Extract the file extension, if there is one.
@@ -19,7 +19,7 @@ const isFile = path => {
  * Accepts a link string and determines if we should render using gatsby-link or
  * a native anchor tag.
  */
-const isGatsbyLink = link => {
+const isGatsbyLink = (link) => {
   // Treat missing links as external, so it will render an anchor tag with an
   // empty href.
   if (!link || link.length === 0) return false
@@ -38,7 +38,7 @@ const isGatsbyLink = link => {
 
 // ---------------------------------------- | Internal Link
 
-const InternalLink = props => (
+const InternalLink = (props) => (
   <GatsbyLink
     to={props.to}
     className={props.className}
@@ -79,7 +79,7 @@ InternalLink.propTypes = {
 
 // ---------------------------------------- | External Link
 
-const ExternalLink = props => (
+const ExternalLink = (props) => (
   <a
     href={props.to}
     target={props.target}
@@ -95,7 +95,7 @@ ExternalLink.propTypes = {
   /**
    * Text or elements to render inside the link.
    */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+  children: PropTypes.node.isRequired,
   /**
    * The "class" attribute of the anchor.
    */
@@ -116,7 +116,7 @@ ExternalLink.propTypes = {
 
 // ---------------------------------------- | Link Component
 
-const Link = props =>
+const Link = (props) =>
   isGatsbyLink(props.to) ? <InternalLink {...props} /> : <ExternalLink {...props} />
 
 Link.propTypes = {

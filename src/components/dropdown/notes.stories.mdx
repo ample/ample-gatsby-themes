@@ -1,7 +1,9 @@
 import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks"
 
+import Link from "../link"
+
 import fixture from "./menu/__fixtures__/dropdown_menu.json"
-import { Dropdown, DropdownMenu, DropdownTrigger } from "./"
+import Dropdown from "./"
 
 <Meta title="Components/Dropdown" component={Dropdown} />
 
@@ -17,12 +19,41 @@ The dropdown component is really more of a set of composable elements that can b
 
 ## Usage
 
+The default usage will render the trigger as a link.
+
 <Preview>
   <Story name="Dropdown">
     <>
-      <Dropdown>
-        <DropdownTrigger>Hover over me</DropdownTrigger>
-        <DropdownMenu items={fixture} />
+      <Dropdown trigger={{ label: "Click Me" }}>
+        <ul>
+          {fixture.map((link, idx) => (
+            <li key={idx}>
+              <Link to={link.url}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </Dropdown>
+      <p>
+        Here's some other content to demonstrate that the menu is absolutely-positioned by default.
+      </p>
+    </>
+    `
+  </Story>
+</Preview>
+
+You can also use a button as the trigger. This uses the `<Button />` component.
+
+<Preview>
+  <Story name="Dropdown Button">
+    <>
+      <Dropdown trigger={{ label: "Click Me", button: true }}>
+        <ul>
+          {fixture.map((link, idx) => (
+            <li key={idx}>
+              <Link to={link.url}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
       </Dropdown>
       <p>
         Here's some other content to demonstrate that the menu is absolutely-positioned by default.

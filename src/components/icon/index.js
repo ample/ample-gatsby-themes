@@ -1,12 +1,16 @@
-import React, { Fragment } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import icons from "./icons"
 
-const Icon = ({ name }) => {
-  return <Fragment>{icons[name]}</Fragment>
+const Icon = ({ className, name }) => {
+  return <span className={className}>{icons[name]}</span>
 }
 
 Icon.propTypes = {
+  /**
+   * Adds CSS classes to the wrapping element.
+   */
+  className: PropTypes.string,
   /**
    * Specifies the name of the icon
    */
