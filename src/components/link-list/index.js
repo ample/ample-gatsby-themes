@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import classNames from "classnames/bind"
 
 import Button from "../button"
-import { Dropdown, DropdownMenu, DropdownTrigger } from "../dropdown"
+import Dropdown from "../dropdown"
 import Link from "../link"
 
 import styles from "./styles.module.scss"
@@ -25,9 +25,14 @@ const LinkList = ({ activeClassName, className, heading, links = [], vertical })
         if (item.children && item.children.length > 0) {
           return (
             <li key={index}>
-              <Dropdown key={index}>
-                <DropdownTrigger>{item.label}</DropdownTrigger>
-                <DropdownMenu items={item.children} />
+              <Dropdown key={index} trigger={{ label: item.label }}>
+                <ul>
+                  {item.children.map((child, idx) => (
+                    <li key={idx}>
+                      <Link to={child.url}>{child.label}</Link>
+                    </li>
+                  ))}
+                </ul>
               </Dropdown>
             </li>
           )

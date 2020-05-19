@@ -43,8 +43,10 @@ const Dropdown = ({ children, className, trigger }) => {
         role="button"
         tabIndex={0}
       >
-        <span>{trigger.label}</span>
-        <Icon name="arrow-down" />
+        <>
+          <span>{trigger.label}</span>
+          <Icon name="arrow-down" />
+        </>
       </TriggerTagName>
 
       <div className={styles.dropdown_menu} onMouseDown={handleChildrenMousedown}>
