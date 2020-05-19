@@ -1,15 +1,14 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import { Dropdown, DropdownMenu, DropdownTrigger } from "./"
+import Dropdown from "./"
 
 describe("Dropdown", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
-        <Dropdown>
-          <DropdownTrigger>Trigger</DropdownTrigger>
-          <DropdownMenu items={[]}></DropdownMenu>
+        <Dropdown trigger={{ label: "Trigger" }}>
+          <ul></ul>
         </Dropdown>
       )
       .toJSON()

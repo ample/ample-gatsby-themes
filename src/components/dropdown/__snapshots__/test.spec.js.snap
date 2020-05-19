@@ -3,15 +3,36 @@
 exports[`Dropdown renders correctly 1`] = `
 <span
   className="dropdown"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  role="button"
-  tabIndex={0}
+  onBlur={[Function]}
 >
-  <span
+  <a
     className="dropdown_trigger"
+    href=""
+    onClick={[Function]}
+    rel="noopener"
+    target="_blank"
   >
-    Trigger
-  </span>
+    <span>
+      Trigger
+    </span>
+    <span>
+      <svg
+        height={8}
+        viewBox="0 0 11 8"
+        width={11}
+      >
+        <path
+          d="M9.524.724l1.262 1.263L5.393 7.38 0 1.987 1.263.724l4.13 4.131z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </span>
+  </a>
+  <div
+    className="dropdown_menu"
+    onMouseDown={[Function]}
+  >
+    <ul />
+  </div>
 </span>
 `;

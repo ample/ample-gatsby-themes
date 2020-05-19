@@ -41,54 +41,72 @@ exports[`LinkList renders horizontal lists correctly 1`] = `
   <li>
     <span
       className="dropdown"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="button"
-      tabIndex={0}
+      onBlur={[Function]}
     >
-      <span
+      <a
         className="dropdown_trigger"
+        href=""
+        onClick={[Function]}
+        rel="noopener"
+        target="_blank"
       >
-        Suspendisse semper
-      </span>
-      <ul
+        <span>
+          Suspendisse semper
+        </span>
+        <span>
+          <svg
+            height={8}
+            viewBox="0 0 11 8"
+            width={11}
+          >
+            <path
+              d="M9.524.724l1.262 1.263L5.393 7.38 0 1.987 1.263.724l4.13 4.131z"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </a>
+      <div
         className="dropdown_menu"
+        onMouseDown={[Function]}
       >
-        <li>
-          <a
-            href="/"
-          >
-            Vestibulum vitae
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            rel="noopener"
-            target="_blank"
-          >
-            Pellentesque tempor venenatis
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            rel="noopener"
-            target="_blank"
-          >
-            Fusce molestie
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            rel="noopener"
-            target="_blank"
-          >
-            Etiam in lacinia dolor
-          </a>
-        </li>
-      </ul>
+        <ul>
+          <li>
+            <a
+              href="/"
+            >
+              Vestibulum vitae
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              rel="noopener"
+              target="_blank"
+            >
+              Pellentesque tempor venenatis
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              rel="noopener"
+              target="_blank"
+            >
+              Fusce molestie
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              rel="noopener"
+              target="_blank"
+            >
+              Etiam in lacinia dolor
+            </a>
+          </li>
+        </ul>
+      </div>
     </span>
   </li>
   <li>
